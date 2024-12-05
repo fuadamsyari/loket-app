@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Loket;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\VarDumper;
 
@@ -11,7 +11,8 @@ class LoketController extends Controller
     // tampilan utama
     public function index()
     {
-        return view('loket.index');
+        $lokets = Loket::all();
+        return view('loket.index', compact('lokets'));
     }
     // ketika user memilih loket masuk sini
     public function pilihLoket(Request $request)
@@ -28,7 +29,8 @@ class LoketController extends Controller
         }
 
         // cetak print
+        session()->flash('message', 'Antrean Tercetak ' . ucfirst($loket) . '.');
 
-        return redirect()->route('home');  // Kembali ke halaman beranda setelah memilih loket
+        return redirect()->route('loket');  // Kembali ke halaman beranda setelah memilih loket
     }
 }
