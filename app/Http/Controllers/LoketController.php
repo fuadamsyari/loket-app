@@ -27,6 +27,8 @@ class LoketController extends Controller
             // Proses Loket 3
         }
 
+        // cetak print
+
         return redirect()->route('home');  // Kembali ke halaman beranda setelah memilih loket
     }
 }
