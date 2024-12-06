@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('lokets', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_loket');
             $table->string('nama_loket');
-            $table->string('deskripsi');
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }

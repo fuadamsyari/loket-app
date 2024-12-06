@@ -1,0 +1,8 @@
+
+tabel loket
+Loket::create(['kode_loket' => 'A', 'nama_loket' => 'DJP', 'deskripsi' => 'Kantor Pelayanan Direktorat Jendral Pajak']);
+Loket::create(['kode_loket' => 'B', 'nama_loket' => 'Samsat', 'deskripsi' => 'Kantor Pelayanan Samsat']);
+Loket::create(['kode_loket' => 'C', 'nama_loket' => 'BPJS', 'deskripsi' => 'Kantor Pelayanan BPJS']);
+
+
+tabel antrean

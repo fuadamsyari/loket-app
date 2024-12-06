@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntreanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoketController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Rute Loket
 Route::get('/loket', [LoketController::class, 'index'])->name('loket');
 Route::post('/loket/pilih', [LoketController::class, 'pilihLoket'])->name('loket.pilih');
+
+
+// Rute Antrean
+Route::get('/antrean', [AntreanController::class, 'index'])->name('antrean');
+
+
+// akhir

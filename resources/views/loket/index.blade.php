@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container mx-auto  ">
-    <a href="{{ route('home') }}" class="" ><-Kembali</a>
-    <div class=" flex text-center  bg-slate-100 rounded-lg  h-[90vh] flex-col justify-center p-8 pt-2">
+    <a href="{{ route('home') }}" class="font-thin  px-3 py-2 text-green-600 bg-slate-100 rounded-xl" >Home</a>
+    <div class=" flex text-center  bg-slate-100 rounded-2xl  h-[90vh] flex-col justify-center p-8 mt-3">
         <div class="notif relative mx-auto w-1/2 h-20 flex items-center mb-3">
             @if(session('message'))
 
-            <div id="flash-message" class="ring ring-green-100 flex justify-center rounded-full items-center bg-green-400 opacity-80 w-full h-full">
+            <div id="flash-message" class="ring ring-green-100 flex justify-center rounded-2xl items-center bg-green-400 opacity-80 w-full h-full">
                <p class="text-lg">{{ session('message') }}</p>
             </div>
             @endif
@@ -28,7 +28,7 @@
                       <div class="card-actions">
                         <form action="{{ route('loket.pilih') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn bg-green-500" name="loket" value="loket1">Cetak Antrean</button>
+                            <button type="submit" class="btn bg-green-400" name="loket" value="{{ $loket->id }}">Cetak Antrean</button>
                         </form>
                       </div>
                     </div>

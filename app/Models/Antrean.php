@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Loket extends Model
+class Antrean extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'kode_loket' , 'nama_loket', 'deskripsi'];
+    protected $fillable = ['nomor_antrean', 'locket_id',];
 }
