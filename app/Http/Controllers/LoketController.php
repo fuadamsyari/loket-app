@@ -14,7 +14,7 @@ class LoketController extends Controller
     {
         $title = 'Loket';
         $lokets = Loket::all();
-        return view('loket', compact('user_id', 'title', 'lokets'));
+        return view('loket', compact('title', 'lokets'));
     }
     // ketika user memilih loket masuk sini
     public function pilihLoket(Request $request)
@@ -47,7 +47,6 @@ class LoketController extends Controller
         $antrean->save();
 
         // cetak print
-
 
         // kembali halaman loket dan memberi flash data antrean tergenerate
         session()->flash('message', 'Antrean Tercetak dengan nomor ' . ucfirst($formattedNomorAntrean) . '.');
