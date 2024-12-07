@@ -14,7 +14,7 @@ class LoketController extends Controller
     {
         $title = 'Loket';
         $lokets = Loket::all();
-        return view('loket', compact('title', 'lokets'));
+        return view('loket', compact('user_id', 'title', 'lokets'));
     }
     // ketika user memilih loket masuk sini
     public function pilihLoket(Request $request)
@@ -41,6 +41,7 @@ class LoketController extends Controller
 
         // simpan antrean baru ke database tabel antreans
         $antrean = new Antrean();
+
         $antrean->nomor_antrean = $formattedNomorAntrean;
         $antrean->loket_id = $idLoket;
         $antrean->save();
