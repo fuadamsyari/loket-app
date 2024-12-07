@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-auto  ">
     <a href="{{ route('home') }}" class="font-thin  px-3 py-2 text-green-600 bg-slate-100 rounded-xl" >Home</a>
-    <div class=" flex text-center  bg-slate-100 rounded-2xl  h-[90vh] flex-col justify-center p-8 mt-3">
+    <div class=" flex text-center  bg-slate-100 rounded-2xl  pb-32 flex-col justify-center p-8 mt-3">
         <div class="notif relative mx-auto w-1/2 h-20 flex items-center mb-3">
             @if(session('message'))
 

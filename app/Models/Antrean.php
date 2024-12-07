@@ -9,4 +9,10 @@ class Antrean extends Model
 {
     use HasFactory;
     protected $fillable = ['nomor_antrean', 'locket_id',];
+
+
+    public function loket()
+    {
+        return $this->belongsTo(Loket::class);
+    }
 }

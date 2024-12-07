@@ -12,8 +12,9 @@ class LoketController extends Controller
     // tampilan utama
     public function index()
     {
+        $title = 'Loket';
         $lokets = Loket::all();
-        return view('loket.index', compact('lokets'));
+        return view('loket.index', compact('title', 'lokets'));
     }
     // ketika user memilih loket masuk sini
     public function pilihLoket(Request $request)

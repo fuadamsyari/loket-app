@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Loket extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'kode_loket' , 'nama_loket', 'deskripsi'];
+    protected $fillable = ['kode_loket', 'nama_loket', 'deskripsi'];
+
+    public function antreans()
+    {
+        return $this->hasMany(Antrean::class);
+    }
 }

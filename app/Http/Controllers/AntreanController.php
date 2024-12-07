@@ -10,11 +10,12 @@ class AntreanController extends Controller
     //menampilkan antrean yang ada
     public function index()
     {
+        $title = 'Antrean';
         $antreanMenunggu = $antreans = Antrean::where('status', 'menunggu')->get();
         $antreanDiproses = $antreans = Antrean::where('status', 'diproses')->get();
         $antreanSelesai = $antreans = Antrean::where('status', 'selesai')->get();
 
 
-        return view('antrean.index', compact('antreanMenunggu', 'antreanDiproses', 'antreanSelesai'));
+        return view('antrean.index', compact('title', 'antreanMenunggu', 'antreanDiproses', 'antreanSelesai'));
     }
 }

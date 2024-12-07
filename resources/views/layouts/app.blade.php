@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/js/flash.js')
-    <title>Document</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
             <!-- Memasukkan Navbar -->
