@@ -16,6 +16,6 @@ class AntreanController extends Controller
         $antreanSelesai = $antreans = Antrean::where('status', 'selesai')->get();
 
 
-        return view('antrean.index', compact('title', 'antreanMenunggu', 'antreanDiproses', 'antreanSelesai'));
+        return view('antrean', compact('title', 'antreanMenunggu', 'antreanDiproses', 'antreanSelesai'));
     }
 }

@@ -17,6 +17,6 @@ class HomeController extends Controller
 
         // var_dump(compact('home'));
         // die;
-        return view('home.index', compact('title', 'versiAplikasi', 'sambutan'));
+        return view('home', compact('title', 'versiAplikasi', 'sambutan'));
     }
 }
