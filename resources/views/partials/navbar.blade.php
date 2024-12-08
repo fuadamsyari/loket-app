@@ -25,7 +25,7 @@
           <li><a>TV Loket 2</a></li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-green-600 text-xl" href="{{{ route('home') }}}">Loket App</a>
+      <a class="btn btn-ghost text-green-600 text-xl" href="{{ route('home') }}">Loket App</a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
@@ -36,6 +36,6 @@
       </ul>
     </div>
     <div class="navbar-end">
-      <a class="btn bg-green-400">Login</a>
+      <a href="{{ route('login') }}" class="btn bg-green-400">Login</a>
     </div>
   </div>

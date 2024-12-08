@@ -49,7 +49,6 @@ class LoketController extends Controller
         // cetak print
 
         // kembali halaman loket dan memberi flash data antrean tergenerate
-        session()->flash('message', 'Antrean Tercetak dengan nomor ' . ucfirst($formattedNomorAntrean) . '.');
-        return redirect()->route('loket');  // Kembali ke halaman beranda setelah memilih loket
+        return redirect()->route('loket')->with('message', 'Antrean Tercetak dengan nomor ' . ucfirst($formattedNomorAntrean) . '.');  // Kembali ke halaman beranda setelah memilih loket
     }
 }

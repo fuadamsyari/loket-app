@@ -22,15 +22,13 @@
 
                 </thead>
                 <tbody>
-                    @if($antreans->has('diproses'))
-                        @foreach ($antreans->get('diproses') as $antrean)
-                        <tr>
-                            <td>{{ $antrean->nomor_antrean }}</td>
-                            <td>{{ $antrean->status }}</td>
-                            <td>{{ $antrean->waktu }}</td>
-                        </tr>
-                        @endforeach
-                    @endif
+                    @foreach ($antreans->get('diproses', collect()) as $antrean)
+                    <tr>
+                        <td>{{ $antrean->nomor_antrean }}</td>
+                        <td>{{ $antrean->status }}</td>
+                        <td>{{ $antrean->waktu }}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
                 </table>
             </div>

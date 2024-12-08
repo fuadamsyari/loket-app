@@ -2,12 +2,11 @@
 
 @section('content')
 <div class="container mx-auto  ">
-    <a href="{{ route('home') }}" class="font-thin  px-3 py-2 text-green-600 bg-slate-100 rounded-xl" >Home</a>
+    <a href="{{ route('home') }}" class="font-thin  px-3 py-2 text-grey-500 bg-slate-100 rounded-xl" >Home</a>
     <div class=" flex text-center  bg-slate-100 rounded-2xl  pb-32 flex-col justify-center p-8 mt-3">
         <div class="notif relative mx-auto w-1/2 h-20 flex items-center mb-3">
             @if(session('message'))
-
-            <div id="flash-message" class="ring ring-green-100 flex justify-center rounded-2xl items-center bg-green-400 opacity-80 w-full h-full">
+            <div id="flash-message" class=" mx-auto ring ring-green-100 flex justify-center rounded-sm items-center bg-green-400 opacity-80 w-1/2 h-1/2">
                <p class="text-lg">{{ session('message') }}</p>
             </div>
             @endif
