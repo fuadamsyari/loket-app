@@ -1,5 +1,5 @@
 
-<div class="navbar bg-base-100">
+<div class="navbar bg-base-100 container mx-auto">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -20,7 +20,6 @@
           tabindex="0"
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li><a href="{{ route('loket') }}">Loket</a></li>
-          {{-- <li><a href="{{ route('antrean', '') }}">Antrean</a></li> --}}
           <li><a>TV Loket 1</a></li>
           <li><a>TV Loket 2</a></li>
         </ul>
@@ -28,11 +27,11 @@
       <a class="btn btn-ghost text-green-600 text-xl" href="{{ route('home') }}">Loket App</a>
     </div>
     <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1">
-        <li><a href="{{ route('loket') }}">Loket</a></li>
-        {{-- <li><a href="{{ route('antrean') }}">Antrean</a></li> --}}
-        <li><a>TV Loket 1</a></li>
-        <li><a>TV Loket 2</a></li>
+      <ul class="menu menu-horizontal px-2">
+        <li><a class="{{ request()->routeIs('home') ? ' active ' : ' ' }}mx-1" href="{{ route('home') }}">Home</a></li>
+        <li><a class="{{ request()->routeIs('loket') ? ' active ' : ' ' }}mx-1" href="{{ route('loket') }}">Loket</a></li>
+        <li><a class="mx-1">TV Loket 1</a></li>
+        <li><a class="mx-1" >TV Loket 2</a></li>
       </ul>
     </div>
     <div class="navbar-end">

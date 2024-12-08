@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Loket;
 use Illuminate\support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,18 @@ class RegisterController extends Controller
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password'],),
         ]);
+
+        // generate kode_loket
+        $kodeLoket = Loket::generateKodeLoket();
+
+        // Membuat data loket baru
+        $loket = Loket::create([
+            'user_id' => $user->id,  // id user yang baru dibuat
+            'kode_loket' => $kodeLoket,
+            'nama_loket' => $validatedData['nama_loket'],
+            'deskripsi' => $validatedData['deskripsi']
+        ]);
+
 
         // // Login user baru
         // Auth::login($user);

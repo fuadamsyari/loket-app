@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $title = 'home';
+        $title = 'Home';
         $versiAplikasi = '1.0';
         $sambutan  = 'Aplikasi ini membantu Anda mengelola antrian dan loket dengan mudah dan efisien.';
 

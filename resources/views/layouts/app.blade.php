@@ -13,7 +13,7 @@
             <!-- Memasukkan Navbar -->
             @include('partials.navbar')
 
-            <main class="py-4">
+            <main class="">
                 @yield('content') <!-- Menampilkan konten halaman lain -->
             </main>
 
