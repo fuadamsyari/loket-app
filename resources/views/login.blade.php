@@ -8,14 +8,28 @@
         <div id="flash-message" class="py-2 ring ring-green-100 flex justify-center rounded-sm items-center bg-green-400 opacity-80 w-full h-full">
             <p class="text-lg">{{ session('success') }}</p>
         </div>
-            @endif
-            <form action="{{ route('login') }}" method="POST">
+        @endif
+        @if(session()->has('loginError'))
+        <div id="flash-message" class=" py-2 ring ring-red-100 flex justify-center rounded-sm items-center bg-red-400 opacity-80 w-full h-full">
+            <p class="text-lg">{{ session('loginError') }}</p>
+        </div>
+        @endif
+        <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="space-y-4">
                     <!-- Email -->
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required class="input input-bordered w-full mt-1" placeholder="you@example.com">
+                        <input type="email" id="email" name="email" required class="input input-bordered w-full mt-1
+                            @error('email')
+                                border-red-500 ring-red-500 focus:input-error focus:ring-red-500
+                            @enderror
+                        "placeholder="you@example.com" autofocus value="{{ old('email') }}" >
+                        @error('email')
+                        <p class="mt-2 text-sm text-red-600">
+                            {{ $message }}
+                        </p>
+                        @enderror
                     </div>
 
                     <!-- Password -->

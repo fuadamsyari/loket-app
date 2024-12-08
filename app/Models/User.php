@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     public function lokets()
     {
-        return $this->hasMany(Loket::class);
+        return $this->hasOne(Loket::class);
     }
 }

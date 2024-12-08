@@ -36,5 +36,9 @@
     </div>
     <div class="navbar-end">
       <a href="{{ route('login') }}" class="btn bg-green-400">Login</a>
+      <form action="{{ route('logout') }}" method="POST">
+        @csrf
+          <button class="btn bg-red-400">Logout</button>
+      </form>
     </div>
   </div>

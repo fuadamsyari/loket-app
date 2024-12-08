@@ -20,7 +20,7 @@ class RegisterController extends Controller
     {
         // Validasi data inputan
         $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required',  'string', 'max:255'],
             'email' => ['required', 'string', 'email:dns', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'nama_loket' => ['required', 'string', 'max:255'],

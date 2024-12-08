@@ -3,6 +3,12 @@
 @section('content')
 <div class="mx-auto container flex p-3 overflow-y-auto bg-slate-100 h-[90vh] rounded-2xl ">
     <div class=" w-1/2   flex flex-col flex-nowrap pt-32  text-center ">
+
+        <div class="loket-details">
+            <p><strong>Kode Loket:</strong> {{ $loket->kode_loket }}</p>
+            <p><strong>Nama Loket:</strong> {{ $loket->nama_loket }}</p>
+            <p><strong>Deskripsi:</strong> {{ $loket->deskripsi }}</p>
+        </div>
         <h1 class="font-bold text-2xl" >Navigasi Antrean</h1>
         <div class="navigasi mt-16">
             <a href="" class="btn w-40 my-4 bg-red-400">Pref</a>
