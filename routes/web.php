@@ -25,7 +25,7 @@ Route::post('/loket/pilih', [LoketController::class, 'pilihLoket'])->name('loket
 
 
 // Rute Antrean
-Route::get('/antrean', [AntreanController::class, 'index'])->name('antrean');
+Route::get('/antrean/{loket_id}', [AntreanController::class, 'index'])->name('antrean');
 
 
 // akhir

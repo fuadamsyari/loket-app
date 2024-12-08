@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto container flex bg-slate-100 h-[90vh] rounded-2xl ">
+<div class="mx-auto container flex p-3 overflow-y-auto bg-slate-100 h-[90vh] rounded-2xl ">
     <div class=" w-1/2   flex flex-col flex-nowrap pt-32  text-center ">
         <h1 class="font-bold text-2xl" >Navigasi Antrean</h1>
         <div class="navigasi mt-16">
@@ -22,13 +22,15 @@
 
                 </thead>
                 <tbody>
-                    @foreach ($antreanDiproses as $antrean)
-                    <tr>
-                        <td>{{ $antrean->nomor_antrean }}</td>
-                        <td>{{ $antrean->status }}</td>
-                        <td>{{ $antrean->waktu }}</td>
-                    </tr>
-                    @endforeach
+                    @if($antreans->has('diproses'))
+                        @foreach ($antreans->get('diproses') as $antrean)
+                        <tr>
+                            <td>{{ $antrean->nomor_antrean }}</td>
+                            <td>{{ $antrean->status }}</td>
+                            <td>{{ $antrean->waktu }}</td>
+                        </tr>
+                        @endforeach
+                    @endif
                 </tbody>
                 </table>
             </div>
@@ -39,16 +41,17 @@
                         <td>Nomor Antrean</td>
                         <td>Status</td>
                         <td>Waktu</td>
-
                 </thead>
                 <tbody>
-                    @foreach ($antreanMenunggu as $antrean)
-                    <tr>
-                        <td>{{ $antrean->nomor_antrean }}</td>
-                        <td>{{ $antrean->status }}</td>
-                        <td>{{ $antrean->waktu }}</td>
-                    </tr>
-                    @endforeach
+                    @if($antreans->has('menunggu'))
+                        @foreach ($antreans->get('menunggu') as $antrean)
+                        <tr>
+                            <td>{{ $antrean->nomor_antrean }}</td>
+                            <td>{{ $antrean->status }}</td>
+                            <td>{{ $antrean->waktu }}</td>
+                        </tr>
+                        @endforeach
+                    @endif
                 </tbody>
                 </table>
             </div>
@@ -62,13 +65,15 @@
 
                 </thead>
                 <tbody>
-                    @foreach ($antreanSelesai as $antrean)
-                    <tr>
-                        <td>{{ $antrean->nomor_antrean }}</td>
-                        <td>{{ $antrean->status }}</td>
-                        <td>{{ $antrean->waktu }}</td>
-                    </tr>
-                    @endforeach
+                    @if($antreans->has('selesai'))
+                        @foreach ($antreans->get('selesai') as $antrean)
+                        <tr>
+                            <td>{{ $antrean->nomor_antrean }}</td>
+                            <td>{{ $antrean->status }}</td>
+                            <td>{{ $antrean->waktu }}</td>
+                        </tr>
+                        @endforeach
+                    @endif
                 </tbody>
                 </table>
             </div>

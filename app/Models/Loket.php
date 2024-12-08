@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Loket extends Model
 {
     use HasFactory;
-    protected $fillable = ['kode_loket', 'nama_loket', 'deskripsi'];
+    protected $fillable = ['user_id', 'kode_loket', 'nama_loket', 'deskripsi'];
 
     public function antreans()
     {
