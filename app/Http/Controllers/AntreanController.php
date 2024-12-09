@@ -25,34 +25,4 @@ class AntreanController extends Controller
 
         return view('antrean', compact('title', 'antreans', 'loket', 'user'));
     }
-
-    public function nextAntrean($loket_id)
-    {
-        $antrean = Antrean::where('loket_id', $loket_id)
-            ->where('status', 'menunggu')
-            ->orderBy('created_at', 'asc')
-            ->first();
-
-        if ($antrean) {
-            $antrean->status = 'diproses';
-            $antrean->save();
-        }
-
-        return redirect()->route('antrean.index')->with('message', 'Antrean berikutnya diproses.');
-    }
-
-    public function prevAntrean($loket_id)
-    {
-        $antrean = Antrean::where('loket_id', $loket_id)
-            ->where('status', 'diproses')
-            ->orderBy('created_at', 'desc')
-            ->first();
-
-        if ($antrean) {
-            $antrean->status = 'menunggu';
-            $antrean->save();
-        }
-
-        return redirect()->route('antrean.index')->with('message', 'Antrean sebelumnya dikembalikan ke status menunggu.');
-    }
 }
