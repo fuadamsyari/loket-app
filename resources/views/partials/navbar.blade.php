@@ -41,10 +41,10 @@
     <div class="navbar-end">
         @auth
         <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="btn m-1">Hover</div>
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-              <li><a>Item 1</a></li>
-              <li>
+            <div tabindex="0" role="button" class="btn m-1">{{ $user->email }}</div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box gap-2 z-[1] w-52 p-2 shadow">
+              <li><a>{{ $user->email }}</a></li>
+              <li class="bg-red-300 rounded-xl hover:bg-rose-500" >
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="">Logout</button>

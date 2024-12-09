@@ -14,19 +14,27 @@ class Loket extends Model
     // Fungsi untuk menghasilkan kode_loket baru
     public static function generateKodeLoket()
     {
-        // Ambil kode_loket terakhir dari database
-        $lastKode = self::max('kode_loket'); // Menggunakan self karena ini method statis
+        // Ambil semua kode_loket dari database, urutkan secara alfabet
+        $existingCodes = self::pluck('kode_loket')->sort()->toArray();
 
-        // Jika tidak ada kode_loket, mulai dari "A"
-        if (!$lastKode || !preg_match('/^[A-Z]+$/', $lastKode)) {
-            return 'A'; // Pastikan hanya alfabet yang diproses
+        // Cari kode alfabet yang kosong
+        $currentCode = 'A'; // Mulai dari 'A'
+        foreach ($existingCodes as $code) {
+            if ($code !== $currentCode) {
+                return $currentCode; // Kode yang kosong
+            }
+            $currentCode++; // Increment ke huruf berikutnya
         }
 
-        // Generate kode berikutnya
-        return self::incrementKode($lastKode);
+        // Tentukan panjang maksimal berdasarkan kode_loket terpanjang di database
+        $maxLength = self::maxLengthFromDatabase();
+
+        // Jika semua kode terisi, tambahkan kode baru setelah yang terakhir
+        return self::incrementKode($currentCode, $maxLength);
     }
+
     // Fungsi untuk menghitung kode berikutnya
-    private static function incrementKode($kode)
+    private static function incrementKode($kode, $maxLength)
     {
         $length = strlen($kode);
         $index = $length - 1;
@@ -41,9 +49,18 @@ class Loket extends Model
             $index--;
         }
 
-        // Jika semua karakter adalah 'Z', tambahkan karakter baru di depan
-        return 'A' . $kode;
+        // Jika semua karakter adalah 'Z' dan panjang belum mencapai $maxLength, tambahkan karakter baru di depan
+        return strlen($kode) < $maxLength ? 'A' . $kode : $kode;
     }
+
+    // Fungsi untuk mendapatkan panjang maksimal kode_loket dari database
+    private static function maxLengthFromDatabase()
+    {
+        $maxKode = self::max('kode_loket');
+        return $maxKode ? strlen($maxKode) : 1; // Jika belum ada kode, panjang dimulai dari 1
+    }
+
+
 
     public function antreans()
     {

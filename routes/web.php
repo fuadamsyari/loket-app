@@ -26,6 +26,8 @@ Route::get('/loket', [LoketController::class, 'index'])->name('loket');
 Route::post('/loket/pilih', [LoketController::class, 'pilihLoket'])->name('loket.pilih');
 // Rute Antrean
 Route::get('/antrean', [AntreanController::class, 'index'])->name('antrean')->middleware('auth');
+Route::get('/antrean/next', [AntreanController::class, 'nextAntrean'])->name('antrean/next')->middleware('auth');
+Route::get('/antrean/pref', [AntreanController::class, 'prefAntrean'])->name('antrean/pref')->middleware('auth');
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('auth');

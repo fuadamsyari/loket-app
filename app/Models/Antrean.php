@@ -20,6 +20,15 @@ class Antrean extends Model
             ->groupBy('status');
     }
 
+
+
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function loket()
     {
         return $this->belongsTo(Loket::class);
