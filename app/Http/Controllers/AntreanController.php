@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 
 class AntreanController extends Controller
 {
-    public function index($idLoket)
+    public function index()
     {
+        $loket_id = session('loket_id');
         $title = "antrean";
-        $loket = Loket::where('id', $idLoket)->first();
+        $loket = Loket::where('id', $loket_id)->first();
 
         // $user = $loket->user;
-        $antreans = Antrean::byLoketAndGroupedStatus($idLoket);
+        $antreans = Antrean::byLoketAndGroupedStatus($loket_id);
 
         return view('antrean', compact('title', 'antreans', 'loket'));
     }

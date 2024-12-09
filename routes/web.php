@@ -21,13 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 // Rute Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Rute Dashboard
-Route::get('/dashboard', [DashboardController::class, 'redirectToAntrean'])->name('dashboard');
 // Rute Loket
 Route::get('/loket', [LoketController::class, 'index'])->name('loket');
 Route::post('/loket/pilih', [LoketController::class, 'pilihLoket'])->name('loket.pilih');
 // Rute Antrean
-Route::get('/antrean/{loket_id}', [AntreanController::class, 'index'])->name('antrean')->middleware('auth');
+Route::get('/antrean', [AntreanController::class, 'index'])->name('antrean')->middleware('auth');
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('auth');

@@ -15,7 +15,7 @@
         <div id="scroll-kontent" class="text-center h-full  flex-col justify-center  overflow-y-scroll">
             <div class=" flex flex-wrap">
                 @foreach ($lokets as $loket)
-                    <div class="w-1/4  mb-4 ">
+                    <div class="w-1/3  mb-4 ">
                         <div class="mx-auto my-3 min-h-full  card bg-slate-50 w-80 shadow-xl">
                             <figure class="px-10 pt-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-40 fill-green-200">

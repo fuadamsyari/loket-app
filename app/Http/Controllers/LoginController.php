@@ -29,10 +29,10 @@ class LoginController extends Controller
             // Ambil Loket yang terkait dengan user
             $loket = Loket::where('user_id', Auth::id())->first();
             if ($loket) {
-                return redirect()->route('antrean', ['loket_id' => $loket->id]);
+                return redirect()->route('antrean');
             }
             // Jika user tidak memiliki loket
-            return redirect()->route('dashboard')->with('error', 'Loket tidak ditemukan.');
+            return redirect()->route('login')->with('error', 'Loket tidak ditemukan.');
         }
         return back()->with('loginError', 'Invalid credentials');
     }
@@ -44,6 +44,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(route('login'));
+        return redirect(route('home'));
     }
 }
