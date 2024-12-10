@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto container flex p-3 overflow-y-auto bg-slate-100 h-[90vh] rounded-2xl ">
+<div class="mx-auto container flex p-3 overflow-hidden bg-slate-100 h-[85vh] rounded-2xl ">
     <div class=" w-1/2   flex flex-col flex-nowrap  text-center ">
         <div class="loket-details w-1/3 text-left mb-10">
             <p><strong>Admin:</strong> {{ $user->name}}</p>
@@ -21,34 +21,21 @@
                 </form>
                 <form action="{{ route('antrean.next') }}" method="GET" class="inline">
                     @csrf
-                    <button type="submit" class="btn w-40 my-4 bg-yellow-400">Next</button>
+                    <button type="submit" class="btn w-40 my-4 bg-green-400">Next</button>
                 </form>
             </div>
         </div>
     </div>
-    <div class=" w-1/2 bg-yellow-30 flex-wrap pt-3 text-center">
+    <div class=" w-1/2  flex-wrap pt-3 text-center">
         <h1 class="font-bold text-2xl mx-auto" >Daftar Antrean</h1>
         <div class="table flex">
-            <p class="bg-yellow-400 text-center my-2 text-white">Diproses</p>
-            <div class="overflow-x-auto">
-                <table class="table table-xs table-pin-rows table-pin-cols">
-                <thead>
-                        <td>Nomor Antrean</td>
-                        <td>Status</td>
-                        <td>Waktu</td>
-
-                </thead>
-                <tbody>
-                    @foreach ($antreans->get('diproses', collect()) as $antrean)
-                    <tr>
-                        <td>{{ $antrean->nomor_antrean }}</td>
-                        <td>{{ $antrean->status }}</td>
-                        <td>{{ $antrean->waktu }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                </table>
+            @foreach ($antreans->get('diproses', collect()) as $antrean)
+            <div class="w-1/2  mx-auto rounded-lg p-2 bg-yellow-300 text-center">
+                <h1 class="text-2xl font-bold">{{ $antrean->nomor_antrean }}</h1>
+                <p class="text-2xl font-bold">{{ strtoupper($antrean->status) }}</p>
+                {{-- <p>{{ $antrean->waktu }}</p> --}}
             </div>
+            @endforeach
             <p class="bg-red-400 text-center my-2 text-white">Menunggu</p>
             <div class="overflow-x-auto overflow-scroll h-80 ">
                 <table class="table table-xs table-pin-rows table-pin-cols">
@@ -81,7 +68,7 @@
                 </thead>
                 <tbody>
                     @if($antreans->has('selesai'))
-                        @foreach ($antreans->get('selesai') as $antrean)
+                        @foreach ($antreans->get('selesai')->reverse() as $antrean)
                         <tr>
                             <td>{{ $antrean->nomor_antrean }}</td>
                             <td>{{ $antrean->status }}</td>

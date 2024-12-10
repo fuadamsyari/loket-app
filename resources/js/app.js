@@ -15,3 +15,9 @@ window.addEventListener("load", () => {
 scrollContainer.addEventListener("scroll", () => {
     localStorage.setItem("scrollPosition", scrollContainer.scrollTop);
 });
+function showLoading() {
+    const spinner = document.getElementById("loading-spinner");
+    if (spinner) {
+        spinner.classList.remove("hidden");
+    }
+}
