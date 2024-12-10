@@ -54,7 +54,7 @@
           </div>
 
         @else
-        <a href="{{ route('login') }}" class="btn bg-green-400">Login</a>
+        <a href="{{ route('login') }}" class="btn bg-green-400">Login & Register </a>
         @endauth
     </div>
   </div>

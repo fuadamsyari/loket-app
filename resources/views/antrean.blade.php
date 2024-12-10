@@ -15,11 +15,11 @@
         <div class="bg-slate-200 mt-10 mx-auto p-5 rounded-3xl justify-self-center">
             <h1 class="font-bold text-2xl" >Navigasi Antrean</h1>
             <div class="navigasi mt-16">
-                <form action="{{ route('antrean/pref') }}" method="POST" class="inline">
+                <form action="{{ route('antrean.pref') }}" method="GET" class="inline">
                     @csrf
                     <button type="submit" class="btn w-40 my-4 bg-red-400">Pref</button>
                 </form>
-                <form action="{{ route('antrean/next') }}" method="POST" class="inline">
+                <form action="{{ route('antrean.next') }}" method="GET" class="inline">
                     @csrf
                     <button type="submit" class="btn w-40 my-4 bg-yellow-400">Next</button>
                 </form>
